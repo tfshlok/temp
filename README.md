@@ -1,910 +1,1236 @@
-## Unit 1 – Introduction to Cloud Computing
-
-### 1.1 Evolution of Computing → Cloud
-
-1. **Mainframe and time‑sharing**
-   - Central mainframe shared by many users via terminals.
-   - Expensive hardware; limited flexibility.
-
-2. **Client–Server computing**
-   - Powerful servers + many client PCs.
-   - Applications split into front‑end (UI) and back‑end (DB, logic).
-
-3. **Distributed, grid and cluster computing**
-   - Multiple networked machines cooperate on a single task.
-   - Used for scientific simulations, rendering, large batch jobs.
-
-4. **Utility / on‑demand computing**
-   - Computing resources offered like public utilities.
-   - Pay for what you consume instead of owning hardware.
-
-5. **Cloud computing era**
-   - Internet + virtualization + cheap hardware.
-   - Third‑party cloud providers build massive data centres and sell computing as a **service**.
-   - Users see virtual resources (VMs, storage, DBs) instead of physical servers.
+# Research Methodology – Complete Theory
 
 ---
 
-### 1.2 What Is Cloud Computing?
+## Chapter 1 – Introduction to Research Methodology
 
-> Cloud computing is a model for enabling convenient, on‑demand network access to a shared pool of configurable computing resources (servers, storage, networks, applications, services) that can be rapidly provisioned and released with minimal management effort.
+### 1.1 Definition and Meaning of Research
 
-Key points:
+**Research** is a systematic, logical and objective process of finding answers to questions, solving problems, or generating new knowledge through the collection, analysis and interpretation of data.
 
-- Services delivered over the **internet**.
-- Provider owns and manages infrastructure.
-- Customer pays as per **usage** (OpEx model).
+Key characteristics of research:
 
----
-
-### 1.3 Essential Characteristics
-
-1. **On‑Demand Self‑Service**
-   - Users can provision resources (VMs, storage, DBs) automatically via portal or API.
-   - No human interaction with provider is needed.
-
-2. **Broad Network Access**
-   - Services accessible over standard networks and protocols (e.g., HTTP/HTTPS).
-   - Supports heterogeneous clients: laptops, mobiles, thin clients.
-
-3. **Resource Pooling and Multi‑Tenancy**
-   - Provider’s resources are pooled to serve multiple customers.
-   - Same physical servers are shared, but each tenant’s data is isolated logically.
-
-4. **Rapid Elasticity**
-   - Resources can be scaled up/down quickly according to load.
-   - Applications can grow to handle spikes and shrink to save cost (cloud bursting).
-
-5. **Measured Service**
-   - Usage is monitored, controlled and reported (CPU hours, GB‑months, requests).
-   - Enables **pay‑as‑you‑go** billing.
+- **Systematic** – organized, step-by-step approach.
+- **Scientific** – based on empirical evidence and logic.
+- **Objective** – unbiased, based on facts not opinions.
+- **Replicable** – other researchers can repeat the study.
 
 ---
 
-### 1.4 Service Models – IaaS, PaaS, SaaS
+### 1.2 Definition of Research Methodology
 
-#### 1.4.1 Infrastructure as a Service (IaaS)
+**Research Methodology** is a systematic framework of procedures, techniques, tools and methods used to identify, collect, analyze, and interpret data to solve a research problem or achieve research objectives.
 
-- Provides **fundamental computing resources**:
-  - Virtual machines, CPUs, memory.
-  - Block and object storage.
-  - Virtual networks, firewalls, load balancers.
-- Consumer manages:
-  - OS, middleware, runtime, applications and data.
-- Examples:
-  - AWS EC2, Amazon EBS, S3 (as raw storage).
-  - Google Compute Engine, Azure Virtual Machines.
-
-Use‑cases:
-
-- Custom application stacks.
-- Lift‑and‑shift migration from on‑premise servers.
-- Full control over OS and runtime.
+Unlike research methods (specific techniques like surveys or interviews), methodology is the broader strategy and philosophy guiding the entire research process.
 
 ---
 
-#### 1.4.2 Platform as a Service (PaaS)
+### 1.3 Research vs Research Methods vs Research Methodology
 
-- Provides **platform** for building, running and managing applications.
-- Includes:
-  - OS, runtime, programming language support.
-  - Managed databases and middleware.
-  - Developer tools, CI/CD pipelines.
-- Consumer manages only:
-  - Application code and data.
-- Examples:
-  - Google App Engine, AWS Elastic Beanstalk, Azure App Service, Heroku.
-
-Benefits:
-
-- Faster development and deployment.
-- Automatic scaling and patching.
-- Developers focus on business logic, not infrastructure.
+| Aspect | Research | Research Methods | Research Methodology |
+|--------|----------|-----------------|----------------------|
+| **Definition** | Process to find answers and generate knowledge | Techniques and tools for data collection and analysis | Overall approach and framework guiding research |
+| **Focus** | Problem-solving and knowledge creation | Practical application (how) | Theoretical reasoning (why and how) |
+| **Examples** | A study on student performance | Surveys, interviews, experiments | Qualitative vs quantitative approach, research design |
+| **Nature** | Broad activity | Specific and concrete | Conceptual and abstract |
+| **Purpose** | Generate new knowledge or solve problems | Collect and process data efficiently | Ensure research is systematic, valid, reliable |
 
 ---
 
-#### 1.4.3 Software as a Service (SaaS)
+### 1.4 Objectives of Research
 
-- Delivers **complete applications** over the internet.
-- Everything (infrastructure + platform + app) is managed by provider.
-- User interacts via browser or thin client.
+1. **Discover new facts or truths**
+   - Find new information, relationships or principles not known earlier.
 
-Examples:
+2. **Understand and analyze problems**
+   - Explain why a problem exists, how it occurs, and what factors influence it.
 
-- Gmail, Outlook.com
-- Microsoft 365, Google Workspace
-- Salesforce CRM, Dropbox
+3. **Develop new theories, concepts or methods**
+   - Create improved theories, procedures, or techniques.
 
-Properties:
+4. **Verify existing knowledge**
+   - Check whether existing facts or theories are correct and applicable in current situations.
 
-- Subscription or pay‑per‑use pricing.
-- Zero installation and maintenance for end user.
-
----
-
-#### 1.4.4 IaaS vs PaaS vs SaaS – Quick Table
-
-| Aspect       | IaaS                             | PaaS                                  | SaaS                             |
-|-------------|----------------------------------|---------------------------------------|----------------------------------|
-| Control     | User controls OS → app          | User controls app & data only         | User controls config & data only |
-| Provider    | Hardware + virtualization        | Hardware + OS + runtime + DB          | Full stack incl. application     |
-| Users       | Sysadmins, DevOps, infra teams  | Developers                            | End users                        |
-| Examples    | EC2, GCE, Azure VM              | GAE, Elastic Beanstalk, Azure AppSvc  | Gmail, Office 365, Salesforce    |
+5. **Find solutions and aid decision-making**
+   - Provide evidence-based solutions and guide policymakers, managers and organizations in making informed decisions.
 
 ---
 
-### 1.5 Deployment Models
+### 1.5 Motivation in Research
 
-1. **Public Cloud**
-   - Infrastructure owned by third‑party providers.
-   - Resources shared across many customers.
-   - Pros: low cost, high scalability, no infra management.
-   - Cons: less control, data locality/security concerns.
+Research is motivated by:
 
-2. **Private Cloud**
-   - Cloud environment dedicated to a single organisation.
-   - Implemented on‑premises or in hosted data centre.
-   - Pros: higher control, custom security & compliance.
-   - Cons: higher cost and management effort.
-
-3. **Hybrid Cloud**
-   - Combines public and private clouds.
-   - Data/applications can move between them.
-   - Supports **cloud bursting**: normal workload runs on private cloud, spikes go to public cloud.
-
-4. **Community Cloud**
-   - Shared by several organisations with similar needs (e.g., universities, government bodies).
-   - Costs and governance shared among community members.
+- **Intellectual curiosity** – desire to understand phenomena.
+- **Practical problems** – need to solve real-world issues.
+- **Career advancement** – publish and establish credibility.
+- **Social benefits** – improve society through better knowledge.
+- **Gap identification** – filling gaps in existing knowledge.
 
 ---
 
-### 1.6 Cloud Computing Architecture (Logical View)
+### 1.6 Types of Research
 
-Typical layered view:
+#### 1.6.1 Descriptive Research
 
-1. **Client Layer**
-   - End‑user devices: browsers, mobile apps, thin clients.
+- Describes characteristics, behaviour, or phenomena as they exist in reality.
+- Answers "what" rather than "why".
+- Uses surveys, observations, case studies.
+- Example: Census of population demographics.
 
-2. **Application Layer (SaaS)**
-   - Cloud‑hosted applications: email, CRM, office tools.
+#### 1.6.2 Exploratory Research (Formulative Research)
 
-3. **Platform Layer (PaaS)**
-   - Runtimes, frameworks, databases, middleware.
+- Investigates a new or unclear problem to gain insights.
+- Preliminary stage, flexible and open-ended.
+- Methods: interviews, focus groups, literature review.
+- Generates hypotheses for future research.
 
-4. **Infrastructure Layer (IaaS)**
-   - Compute, storage and networking abstractions (VMs, volumes, virtual networks).
+#### 1.6.3 Applied Research
 
-5. **Virtualization Layer**
-   - Hypervisors (KVM, VMware, Hyper‑V), containers (Docker).
-   - Responsible for resource pooling and isolation.
+- Solves specific practical problems.
+- Uses existing theories to find solutions.
+- Example: Developing new drug for diabetes treatment.
 
-6. **Physical Resource Layer**
-   - Actual hardware: servers, storage arrays, networking gear, power and cooling.
+#### 1.6.4 Fundamental Research (Pure Research)
 
-7. **Management & Security Layer**
-   - Monitoring, billing, orchestration, identity and access management, logging, policy enforcement.
+- Conducted to gain knowledge for understanding principles.
+- No immediate practical application.
+- Expands theoretical knowledge.
 
----
+#### 1.6.5 Quantitative Research
 
-### 1.7 Key Concepts Related to Cloud
+- Uses numerical data and statistical methods.
+- Objective, measurable, hypothesis-driven.
 
-1. **Multitenancy**
-   - Single application instance or infrastructure serves multiple customers (tenants).
-   - Each tenant’s data and configuration are logically isolated.
-   - Benefits: high utilization, cost sharing.
-   - Challenges: data isolation, performance interference (“noisy neighbour”).
+#### 1.6.6 Qualitative Research
 
-2. **Scalability**
-   - Ability to handle growing workload by adding resources.
-   - Types:
-     - Vertical (scale‑up): add more CPU/RAM to same machine.
-     - Horizontal (scale‑out): add more machines/instances.
+- Uses non-numerical data (interviews, observations, text).
+- Subjective, exploratory, understanding human experiences.
 
-3. **Elasticity**
-   - Automatic and rapid scaling based on real‑time demand.
-   - Key for handling unpredictable traffic patterns.
+#### 1.6.7 Conceptual Research
 
-4. **Cloud Bursting**
-   - Application primarily runs in private cloud or data centre.
-   - When load spikes beyond local capacity, extra load “bursts” into public cloud.
+- Based on analysis of existing concepts and theories.
+- Develops new concepts or modifies existing theories.
 
----
+#### 1.6.8 Empirical Research
 
-### 1.8 Advantages and Disadvantages of Cloud Computing
+- Based on observation, experiments, and real data collection.
+- Tests hypotheses using actual evidence.
 
-#### Advantages
+#### 1.6.9 Experimental Research
 
-- **Cost Efficiency**
-  - No large upfront hardware investment.
-  - Pay‑as‑you‑go and reserved pricing options.
+- Manipulates variables to study cause-and-effect relationships.
+- Uses control and experimental groups.
+- Most rigorous type of research.
 
-- **Global Reach & Availability**
-  - Data centres in multiple regions for low latency and redundancy.
+#### 1.6.10 Historical Research
 
-- **Speed & Agility**
-  - Quick provisioning of infrastructure in minutes instead of weeks.
-
-- **Reliability and Disaster Recovery**
-  - Built‑in redundancy, automated backups, cross‑region replication.
-
-- **Managed Services**
-  - Databases, analytics, AI, messaging, monitoring, etc., provided as services.
-
-#### Disadvantages / Challenges
-
-- **Security and Privacy Concerns**
-  - Data stored off‑premises; risk of breaches and misconfigurations.
-
-- **Vendor Lock‑in**
-  - Hard to migrate applications from one provider to another.
-
-- **Downtime and Service Outages**
-  - Outages at provider impact all customers relying on that region/service.
-
-- **Network Dependence & Latency**
-  - Performance linked to quality of internet connection.
-
-- **Compliance and Legal Issues**
-  - Data residency, regulatory requirements differ across countries.
+- Investigates past events and their impacts on current situations.
+- Uses documents, records, archives as sources.
 
 ---
 
-### 1.9 Typical Cloud Applications (Exam Favourites)
+### 1.7 Research Approaches
 
-- **Data Storage & Backup** – Google Drive, Dropbox, Amazon S3.
-- **Email Services** – Gmail, Outlook, Yahoo.
-- **Business Apps / SaaS** – Salesforce, Office 365, Google Workspace.
-- **Software Development & Testing** – On‑demand build servers, test environments.
-- **Streaming & Content Delivery** – Netflix, YouTube, music streaming.
-- **Education & Healthcare** – LMS platforms, virtual labs, telemedicine.
+- **Inductive approach** – specific observations → general theories.
+- **Deductive approach** – general theories → specific predictions.
+- **Mixed approach** – combination of inductive and deductive.
 
 ---
 
-## Unit 2 – Abstraction and Virtualization
+### 1.8 Significance of Research
 
-### 2.1 Introduction to Virtualization
-
-- **Virtualization** = technique of creating a virtual (rather than physical) version of something:
-  - Operating system, server, storage device, or network resources.
-- Main goals:
-  - Improve resource utilization (consolidate workloads).
-  - Provide isolation between tenants.
-  - Make provisioning, backup, and migration easier.
+- Contributes to knowledge base of the discipline.
+- Helps solve practical problems.
+- Supports evidence-based decision-making.
+- Promotes innovation and advancement.
 
 ---
 
-### 2.2 Virtualization Technologies and Cloud‑Enabling Technologies
+### 1.9 Characteristics of a Good Researcher
 
-Key technologies enabling cloud:
-
-1. **Server Virtualization**
-   - Hypervisors create multiple virtual machines (VMs) on one physical server.
-   - Each VM runs its own OS and applications.
-
-2. **Containerization**
-   - OS‑level virtualization where applications run in isolated containers sharing host kernel.
-   - Docker, LXC, containerd.
-
-3. **Orchestration Platforms**
-   - Tools like Kubernetes, OpenShift that schedule and manage containers across clusters.
-
-4. **Distributed / Virtualized Storage**
-   - Systems like HDFS, Ceph, Amazon S3, Elastic Block Store.
-   - Abstract multiple disks and servers as a single storage pool.
-
-5. **Software‑Defined Networking (SDN)**
-   - Decouples control plane from data plane.
-   - Allows programmable virtual networks, security groups and overlays.
-
-6. **Automation & Infrastructure as Code**
-   - Tools such as Terraform, Ansible, Chef, CloudFormation automate provisioning.
-
-7. **Middleware & Web Services (SOA / REST APIs)**
-   - Enable integration between services across networks.
+1. **Curiosity and inquisitiveness** – desire to explore and discover.
+2. **Objectivity** – unbiased, evidence-based conclusions.
+3. **Patience and perseverance** – committed to long processes.
+4. **Analytical and critical thinking** – ability to analyze and evaluate data.
+5. **Open-mindedness** – willing to accept new ideas and revise conclusions.
+6. **Ethical conduct** – respects confidentiality, avoids manipulation.
+7. **Effective communication** – presents findings clearly.
+8. **Organizational skills** – manages resources and maintains records.
 
 ---
 
-### 2.3 Types of Virtualization
+### 1.10 Research Ethics and Integrity
 
-1. **Server Virtualization**
-   - Multiple VMs on a single physical server.
-   - Provides isolation, consolidation and ease of management.
+**Research Ethics** ensures honesty, transparency, and responsible conduct in all aspects of research.
 
-2. **Storage Virtualization**
-   - Abstracts multiple physical storage devices into a unified storage pool.
-   - Types: block‑level, file‑level, object‑level.
+Key principles:
 
-3. **Network Virtualization**
-   - Creates logical networks (VLANs, virtual switches, VXLAN overlays) on top of physical network.
-   - Facilitates multi‑tenant isolation and dynamic network provisioning.
-
-4. **Desktop Virtualization**
-   - User desktops run in VMs in data centre; users connect via thin client or RDP.
-
-5. **Application Virtualization**
-   - Application runs in a sandbox without full installation on host OS.
-
-6. **OS‑Level Virtualization (Containers)**
-   - Isolation at process level using namespaces and cgroups.
-   - Lightweight and fast start‑up; multiple containers share same kernel.
+- **Honesty** – report data and results accurately.
+- **Integrity** – avoid plagiarism, fabrication, falsification.
+- **Respect** – protect confidentiality of participants.
+- **Accountability** – take responsibility for research decisions.
 
 ---
 
-### 2.4 Hypervisors and their Types
+### 1.11 Plagiarism and Plagiarism Detection
 
-**Hypervisor / Virtual Machine Monitor (VMM)**
+**Plagiarism** = using someone's ideas, words, data or work without proper acknowledgment and presenting them as one's own.
 
-- Layer of software that allows multiple operating systems to run concurrently on a host computer by **abstracting and sharing hardware resources**.
+**Types of Plagiarism:**
 
-#### Type‑1 Hypervisor (Bare‑Metal)
+1. **Direct Plagiarism** – copying text word-for-word without quotation marks or citation.
+2. **Self-Plagiarism** – reusing your own previous work without citing it.
+3. **Mosaic Plagiarism (Patchwriting)** – mixing copied phrases with your own words without proper citation.
+4. **Accidental Plagiarism** – unintentionally failing to cite sources or misquoting.
+5. **Source-based Plagiarism** – citing incorrect sources or giving credit to wrong author.
 
-- Installed directly on the physical hardware.
-- Guest operating systems run on top of hypervisor.
-- Examples: VMware ESXi, Microsoft Hyper‑V, Xen, KVM.
-- Advantages:
-  - High performance & efficiency.
-  - Better isolation and security.
-  - Used in production data centres and clouds.
+**Plagiarism Detection Tools:**
 
-#### Type‑2 Hypervisor (Hosted)
+- Turnitin
+- Grammarly Plagiarism Checker
+- Urkund, PlagScan, Quetext
 
-- Runs as an application on a host operating system (Windows, Linux, macOS).
-- Guest OS runs above the hypervisor app.
-- Examples: Oracle VirtualBox, VMware Workstation, Parallels Desktop.
-- Advantages:
-  - Easy to install and use for development and testing.
-- Disadvantages:
-  - Lower performance because of extra host OS layer.
+**Consequences:**
+
+- Loss of credibility and reputation.
+- Academic penalties, rejection of publications.
+- Legal issues and institutional penalties.
 
 ---
 
-### 2.5 Virtual Machine Life‑Cycle and Provisioning
+## Chapter 2 – Literature Review and Formulation of Research Problems
 
-**Provisioning** = process of creating and configuring a new VM.
+### 2.1 Literature Review
 
-Typical life‑cycle steps:
+**Literature Review** = systematic survey and evaluation of existing research, books, articles, and other sources related to a specific topic.
 
-1. **Template / Image Selection**
-   - Choose base image (e.g., AMI in AWS) with OS and pre‑installed software.
+#### Purpose of Literature Review
 
-2. **Resource Allocation**
-   - Define vCPU, RAM, storage size & type, network configuration, security groups.
+1. **Understand existing knowledge** – know what has already been studied.
+2. **Identify research gaps** – find what is unexplored or needs further study.
+3. **Avoid duplication** – prevent repeating already completed work.
+4. **Develop research framework and hypotheses** – previous studies provide models and variables.
+5. **Improve methodology** – learn best methods and tools from other studies.
 
-3. **Instantiation**
-   - Hypervisor allocates resources and boots the VM.
+#### Types of Literature Resources
 
-4. **Configuration**
-   - Run initialization scripts, install additional packages, configure users and services.
+**Primary Literature Resources** (original data):
 
-5. **Operation & Management**
-   - Monitor performance, patch OS, take snapshots, scale up/down, attach/detach volumes.
+- Surveys and questionnaires.
+- Interviews, observations, experiments.
+- Field studies and research articles.
+- **Characteristics:** First-hand, authentic, provides direct evidence, time-consuming to collect.
 
-6. **De‑provisioning / Termination**
-   - Shut down and delete VM, free the resources, optionally archive snapshots.
+**Secondary Literature Resources** (interpreted data):
 
-Provisioning styles:
-
-- **Manual** – admin creates each VM step by step.
-- **Automated** – scripted or template‑based creation using tools.
-- **Self‑Service** – end‑users request VMs via a portal and automation handles provisioning.
-- **Hybrid** – combination of above according to policy.
-
----
-
-### 2.6 Physical Cluster vs Virtual Cluster
-
-**Physical Cluster**
-
-- Group of interconnected physical servers working together as a single system.
-- Nodes are fixed hardware; scaling requires buying and installing new servers.
-- Used traditionally for HPC and large database workloads.
-
-**Virtual Cluster**
-
-- Cluster built using **virtual machines** instead of purely physical nodes.
-- VMs may reside on multiple physical hosts and can be dynamically created or destroyed.
-- Enables:
-  - Better resource utilization.
-  - Easier scaling and management.
-  - Integration with cloud auto‑scaling.
-
-| Feature        | Physical Cluster                      | Virtual Cluster                               |
-|---------------|----------------------------------------|-----------------------------------------------|
-| Node type     | Dedicated physical machines            | Virtual machines on shared hardware           |
-| Flexibility   | Low, hardware‑bound                    | High – VMs can be created/migrated quickly    |
-| Scalability   | Limited by available hardware          | Elastic, can use cloud resources              |
-| Cost          | High CapEx and power/cooling           | Lower by consolidating many VMs per host      |
-| Management    | Manual hardware maintenance            | Managed via hypervisors and cloud platforms   |
+- Books, textbooks, research journals and articles.
+- Reports, government publications.
+- Websites, databases, reviews.
+- **Characteristics:** Easily accessible, helps understand existing knowledge, useful for framework building.
 
 ---
 
-### 2.7 Virtual Machine Migration
+### 2.2 Internet and E-Resources for Research
 
-- **VM migration** = moving a VM from one physical host to another.
+**Global E-Resources:**
 
-Types:
+- Google Scholar
+- IEEE Xplore, SpringerLink, ScienceDirect
+- JSTOR, ResearchGate
+- PubMed Central (biomedical literature)
 
-1. **Cold Migration**
-   - VM is powered off, then moved, then powered on.
-   - Simple but involves noticeable downtime.
+**Indian E-Resources:**
 
-2. **Live Migration**
-   - VM keeps running while its memory and state are copied to the destination host.
-   - Short pause during final switchover; nearly zero downtime.
-
-Reasons to migrate:
-
-- Load balancing across hosts.
-- Hardware maintenance without application downtime.
-- Power saving (consolidate VMs to fewer servers).
-- Fault tolerance and disaster recovery.
+- INFLIBNET – Information and Library Network
+- Shodhganga, Shodhgangotri
+- e-ShodhSindhu
+- NPTEL, NDLI (National Digital Library of India)
 
 ---
 
-### 2.8 Virtualization of CPU, Memory and I/O (Conceptual Overview)
+### 2.3 Conducting and Evaluating Literature Reviews
 
-1. **CPU Virtualization**
-   - Hypervisor schedules virtual CPUs (vCPUs) of VMs onto physical CPU cores.
-   - Hardware support (Intel VT‑x, AMD‑V) allows guests to run privileged instructions efficiently.
-   - Time‑sharing ensures each VM gets CPU slices.
+**Conducting Literature Review:**
 
-2. **Memory Virtualization**
-   - Each VM believes it has contiguous physical memory.
-   - Hypervisor maintains mappings from guest physical pages to host physical frames.
-   - Techniques:
-     - Shadow page tables / nested page tables.
-     - Ballooning and overcommit to share unused memory.
+- Select reliable, peer-reviewed sources.
+- Read and understand the content critically.
+- Organize information by themes or topics.
+- Compare and contrast findings across studies.
 
-3. **I/O Virtualization**
-   - Virtual devices (virtual NICs, disks) presented to each VM.
-   - Hypervisor multiplexes physical devices among VMs.
-   - Paravirtual drivers or SR‑IOV improve performance.
+**Evaluating Literature:**
+
+- Check authority and credibility of author.
+- Assess methodology and data quality.
+- Check publication date (recency).
+- Evaluate bias and objectivity.
 
 ---
 
-### 2.9 Load Balancing and Virtualization
+### 2.4 Research Problem
 
-- **Load balancing** = distributing incoming requests across multiple servers or VMs to avoid overload and ensure high availability.
-- Common algorithms:
-  - **Round Robin** – send each request to next server in sequence.
-  - **Weighted Round Robin** – heavier‑capacity servers get higher weight.
-  - **Least Connections** – choose server with fewest active connections.
-- Works closely with virtualization:
-  - New VMs can be provisioned when load increases.
-  - Load balancer automatically includes new instances in rotation.
+**Research Problem** = a clear, specific question or issue that a researcher wants to investigate systematically.
 
----
+#### Necessity of Formulating a Research Problem
 
-### 2.10 Cloud‑Enabling vs Cloud‑Enabled
+1. **Provides focus and direction** – concentrates on relevant objectives and variables.
+2. **Avoids wastage of resources** – prevents unnecessary effort, time, cost.
+3. **Facilitates hypothesis formation** – leads to clear testable assumptions.
+4. **Guides methodology** – determines suitable research design and data collection methods.
+5. **Ensures relevance** – confirms study addresses significant issue in the field.
 
-- **Cloud‑enabling technologies**
-  - Technologies like virtualization, SDN, distributed storage, orchestration and automation that make cloud possible.
+#### Techniques for Defining a Research Problem
 
-- **Cloud‑enabled applications**
-  - Applications designed or refactored to use cloud features:
-    - Stateless web tiers, externalized session storage.
-    - Use of managed DBs, caches and messaging.
-    - Horizontal scaling and auto‑scaling.
+1. **Literature Review** – study previous research to identify gaps.
+2. **Observation** – observe real-life phenomena to find research-worthy problems.
+3. **Discussion with experts** – consult mentors or professionals.
+4. **Personal experience** – use practical experience to frame problems.
+5. **Feasibility analysis** – assess available time, resources, data.
 
----
+#### Characteristics of Good Research Problem
 
-## Unit 3 – Overview of Cloud Security
-
-### 3.1 Introduction to Cloud Security
-
-- Cloud security = policies, controls, procedures and technologies that protect cloud data, applications and infrastructure.
-- Goals follow **CIA triad**:
-  - **Confidentiality** – prevent unauthorized disclosure of data.
-  - **Integrity** – prevent unauthorized modification of data.
-  - **Availability** – ensure authorised users can access services when needed.
-
-Security responsibilities:
-
-- **Cloud provider** – physical security, infrastructure, virtualization, core services.
-- **Customer** – data classification, identity & access, app security, configurations (“shared responsibility model”).
+- **Specific and clearly defined**
+- **Feasible to investigate** within available resources
+- **Important and relevant** to the field
+- **Testable** through research
+- **Avoids vague or broad questions**
 
 ---
 
-### 3.2 Cloud Security Challenges and Risks
+## Chapter 3 – Research Design
 
-Common risks in cloud environments:
+### 3.1 Definition and Meaning of Research Design
 
-1. **Data Breaches**
-   - Attackers access sensitive information due to weak access controls or vulnerabilities.
+**Research Design** = blueprint or plan for conducting research that specifies the overall strategy, methodology, data collection methods, and analysis techniques.
 
-2. **Data Loss**
-   - Data accidentally deleted, corrupted, or lost due to failures or attacks if no proper backup.
-
-3. **Insecure APIs & Interfaces**
-   - Cloud services are controlled via APIs; poor design or misconfigured keys can allow unauthorised access.
-
-4. **Account Hijacking**
-   - Stolen credentials (phishing, key leaks) let attacker control cloud resources.
-
-5. **Insider Threats**
-   - Malicious or careless employees of provider or customer organisation.
-
-6. **Lack of Compliance / Legal Issues**
-   - Failure to meet regulations (GDPR, HIPAA) can cause penalties.
-
-7. **Multi‑Tenancy Risks**
-   - Data leakage or side‑channel attacks between tenants if isolation fails.
+It is a structured approach ensuring research is valid, reliable, and efficient.
 
 ---
 
-### 3.3 Cloud Security Architecture Design (High‑Level)
+### 3.2 Importance of Research Design
 
-A good security architecture includes:
-
-1. **Identity and Access Management (IAM)**
-   - Centralised control of who can access which resource with which permissions.
-   - Uses roles, policies, groups and least‑privilege principle.
-
-2. **Network Security**
-   - Virtual networks (VPC, VNet), subnets.
-   - Security groups / network security groups (NSG) as stateful firewalls.
-   - VPNs and private links for secure connectivity.
-
-3. **Data Protection**
-   - Encryption **at rest** (disk, DB, backups) and **in transit** (TLS/SSL).
-   - Key management services (KMS, Key Vault).
-
-4. **Application Security**
-   - Secure coding practices, input validation, patching.
-   - Web Application Firewalls (WAF).
-
-5. **Monitoring and Logging**
-   - Central log collection (CloudWatch, Azure Monitor).
-   - Intrusion detection systems, SIEM tools.
-
-6. **Backup and Disaster Recovery**
-   - Regular backups, replication across regions.
-   - Tested recovery plans and RTO/RPO objectives.
+1. Ensures research is organized and systematic.
+2. Reduces errors and biases in research.
+3. Specifies how data will be collected and analyzed.
+4. Helps achieve research objectives efficiently.
 
 ---
 
-### 3.4 Identity Management and Access Control (IAM)
+### 3.3 Features of Good Research Design
 
-**Identity Management (IdM)**
-
-- Process of creating, managing and deleting digital identities (users, groups, service accounts).
-- Supports single sign‑on (SSO), password policies, MFA.
-
-**Access Control**
-
-- Mechanism deciding who can access what.
-- Common models:
-  - **DAC** – Discretionary Access Control: owner decides permissions.
-  - **MAC** – Mandatory Access Control: central authority enforces policies.
-  - **RBAC** – Role‑Based Access Control: permissions grouped into roles like Admin, Auditor, Developer.
-
-**IAM Features**
-
-- User and group management.
-- Roles and attached policies.
-- Authentication methods: passwords, MFA, keys, certificates.
-- Auditing and access logs.
+1. **Clear objectives** – well-defined research problem and objectives.
+2. **Structured methodology** – specifies research type, sampling methods, tools.
+3. **Operational plan** – step-by-step guidance for conducting research.
+4. **Validity and reliability** – ensures accurate and consistent results.
+5. **Practicality** – feasible within available time, resources, budget.
+6. **Flexibility** – can accommodate changes if unexpected issues arise.
+7. **Control of bias** – measures to minimize errors and subjectivity.
 
 ---
 
-### 3.5 Multi‑Factor Authentication (MFA)
+### 3.4 Confounder Relationships in Research Design
 
-- Requires at least **two different factors** to log in:
-  1. Something you know – password, PIN.
-  2. Something you have – OTP token, phone, smart card.
-  3. Something you are – fingerprint, face recognition.
+**Confounding variable** = factor that affects the dependent variable but is not controlled, confusing the relationship between independent and dependent variables.
 
-Benefits:
-
-- Reduces risk of account hijacking.
-- Even if password is stolen, attacker still needs second factor.
+Example: studying effect of teaching method on student performance, but student prior knowledge is not controlled.
 
 ---
 
-### 3.6 Cloud Security Monitoring
+### 3.5 Different Research Designs / Methods
 
-**Security Monitoring** = continuous observation of cloud resources and activities to detect threats.
+#### 3.5.1 Pure and Applied Research
 
-Benefits:
+**Pure Research (Fundamental / Basic)**
 
-1. Real‑time threat detection (alerts for anomalies).
-2. Centralised visibility in multi‑account, multi‑region setup.
-3. Helps maintain compliance and generate audit reports.
-4. Supports quick incident response.
+- Conducted for knowledge generation without immediate practical use.
+- Expands theoretical understanding.
+- Example: studying properties of a chemical compound.
 
-Challenges:
+**Applied Research**
 
-1. Complexity of multi‑cloud and hybrid environments.
-2. Large volume of logs → many false positives.
-3. Integration between different provider tools.
-4. Privacy considerations when analysing user data.
+- Solves specific practical problems.
+- Uses existing theories to find solutions.
+- Example: developing software for hospital management.
 
-Typical tools:
+#### 3.5.2 Exploratory vs Formulative vs Descriptive Research
 
-- AWS CloudWatch, GuardDuty, CloudTrail.
-- Azure Monitor, Security Center.
-- GCP Cloud Logging, Security Command Center.
-- SIEM products (Splunk, ELK, etc.).
+**Exploratory Research**
 
----
+- Conducted when problem is not clearly defined.
+- Helps gain insights and identify variables.
+- Flexible, open-ended, qualitative.
+- Purpose: understand problem, formulate hypotheses.
 
-### 3.7 Disaster Recovery in Clouds
+**Formulative Research**
 
-**Disaster Recovery (DR)** = ability to restore IT services after disasters (hardware failure, natural events, cyber‑attacks).
+- Similar to exploratory; conducted to develop plans or strategies.
+- Focuses on problem-solving and applied issues.
 
-Key concepts:
+**Descriptive Research**
 
-- **Backup and replication**
-  - Regular backups; cross‑region or cross‑zone replication.
-- **Failover and failback**
-  - Automatic or manual switch to standby systems; return to primary when fixed.
-- **RTO (Recovery Time Objective)**
-  - Maximum acceptable downtime (e.g., 1 hour).
-- **RPO (Recovery Point Objective)**
-  - Maximum acceptable data loss measured in time (e.g., 15 minutes).
+- Describes characteristics of population or phenomenon.
+- Answers "what" not "why".
+- Uses surveys, observations.
 
-Cloud DR advantages:
+#### 3.5.3 Diagnostic Research
 
-- Cheaper than maintaining secondary physical data centre.
-- Easier testing of DR plans using snapshots, templates and automation.
+- Identifies causes of a problem.
+- Explains why something happens.
 
----
+#### 3.5.4 Evaluation Studies
 
-### 3.8 Cloud Security in Service Models
+- Assesses effectiveness of programs, interventions, policies.
 
-- **IaaS**
-  - Customer secures OS, applications, data, network security groups.
-- **PaaS**
-  - Provider secures platform; customer focuses on app and data (SQL injection, access control).
-- **SaaS**
-  - Provider secures entire stack; customer manages users, roles, and data sharing.
+#### 3.5.5 Action Research
 
----
+- Conducted to solve practical problems while improving practices.
+- Participatory and cyclical: plan → act → observe → reflect → revise.
+- Example: teacher tests new teaching method to improve student performance.
+- Results are immediate and implementable.
 
-## Unit 4 – Cloud Technologies and Advancements
+#### 3.5.6 Experimental Research
 
-### 4.1 Cloud Platforms for Large‑Scale Computing
+- Manipulates independent variable to observe effect on dependent variable.
+- Uses control and experimental groups.
+- Most rigorous type; tests cause-effect relationships.
 
-Major providers:
+#### 3.5.7 Analytical Study or Statistical Method
 
-- **Amazon Web Services (AWS)**
-- **Microsoft Azure**
-- **Google Cloud Platform (GCP)**
-- Others: IBM Cloud, Alibaba Cloud, OpenStack‑based private clouds.
+- Uses statistical analysis to examine relationships between variables.
+- Analyzes existing data rather than conducting experiments.
 
-Cloud platforms provide:
+#### 3.5.8 Historical Research
 
-- Compute (VMs, serverless, containers).
-- Storage (object, block, file).
-- Databases, analytics, AI/ML, IoT.
-- Developer tools, monitoring and security services.
+- Investigates past events and their impacts.
+- Uses documents, records, archives.
 
----
+#### 3.5.9 Surveys
 
-### 4.2 Amazon Web Services – Core Services
+- Collects data from sample population using questionnaires or interviews.
+- Systematic data collection for large populations.
 
-1. **Compute**
-   - **EC2** – Elastic Compute Cloud: resizable virtual servers.
-   - **Lambda** – serverless functions triggered by events.
-   - **ECS/EKS** – container orchestration (Docker/Kubernetes).
+#### 3.5.10 Case Study
 
-2. **Storage**
-   - **S3 (Simple Storage Service)** – scalable object storage.
-   - **EBS (Elastic Block Store)** – block storage for EC2.
-   - **EFS (Elastic File System)** – managed NFS file storage.
-   - **FSx** – Windows file server / Lustre.
-   - **S3 Glacier / Deep Archive** – long‑term archival storage.
+- In-depth investigation of single case or small number of cases.
+- Explores phenomenon in real-life context.
+- Provides detailed insights for theory building or problem-solving.
 
-3. **Databases**
-   - **RDS** – managed relational DB (MySQL, PostgreSQL, etc.).
-   - **DynamoDB** – NoSQL key‑value store.
-   - **Aurora**, **Redshift** for analytics.
+#### 3.5.11 Field Studies
 
-4. **Networking**
-   - **VPC** – Virtual Private Cloud (isolated network).
-   - **Elastic Load Balancer**, **Route 53** DNS.
-   - VPN and Direct Connect for hybrid connectivity.
-
-5. **Security & Management**
-   - **IAM**, **CloudTrail**, **CloudWatch**, **GuardDuty**.
-
-6. **AWS Clients**
-   - AWS Management Console (web UI).
-   - AWS CLI.
-   - SDKs (Boto3 for Python, Java SDK, etc.).
+- Conducted in natural settings rather than laboratories.
+- Observes real-world phenomena.
 
 ---
 
-### 4.3 Amazon S3 – Object Storage (Short Note)
+## Chapter 4 – Hypothesis and Sampling
 
-- Stores objects (data + metadata) in **buckets**.
-- Key features:
-  - Virtually unlimited scalability.
-  - High durability (e.g., 11 nines) via replication across availability zones.
-  - Multiple storage classes:
-    - Standard, Standard‑IA, Intelligent‑Tiering,
-    - Glacier, Glacier Deep Archive.
-  - Security:
-    - Bucket policies, ACLs, IAM roles.
-    - Server‑side and client‑side encryption.
-  - Lifecycle rules for automatic transition and deletion.
+### 4.1 Definition of Hypothesis
 
-Use‑cases:
+**Hypothesis** = a testable statement or assumption about the relationship between two or more variables that guides research and can be proven or disproven through data.
 
-- Backup and restore, big‑data lake, static website hosting, media content.
+It is a tentative explanation or prediction that the researcher proposes and then tests.
 
 ---
 
-### 4.4 Microsoft Azure – Important Components
+### 4.2 Nature and Characteristics of Hypothesis
 
-1. **Compute**
-   - Azure Virtual Machines.
-   - App Service (web apps, APIs).
-   - Azure Functions (serverless).
+**Characteristics:**
 
-2. **Storage**
-   - Blob Storage (object).
-   - Queue, Table, and File Storage.
-
-3. **Networking**
-   - Virtual Network (VNet), Load Balancer.
-   - VPN Gateway, Application Gateway, Azure DNS.
-
-4. **Databases**
-   - Azure SQL Database, Cosmos DB (global NoSQL).
-   - Managed MySQL/PostgreSQL.
-
-5. **Security**
-   - Azure Active Directory (identity).
-   - Key Vault (secrets management).
-   - Security Center, Defender for Cloud.
-
-6. **Management & Dev Tools**
-   - Azure Monitor, Log Analytics.
-   - Azure DevOps, ARM templates, Bicep.
-
-**Programming on Azure**
-
-- Supports languages: C#, Java, Python, Node.js, etc.
-- SDKs and REST APIs for all services.
-- Visual Studio / VS Code integration for build, deploy and CI/CD.
+1. **Testable** – can be verified through empirical data.
+2. **Specific** – clearly defines relationship between variables.
+3. **Based on existing knowledge** – derived from literature, theory, observation.
+4. **Falsifiable** – can potentially be shown to be false.
+5. **Concise** – stated in clear, simple language.
+6. **Relates to observable phenomena** – measurable variables.
 
 ---
 
-### 4.5 Google App Engine & Google Cloud
+### 4.3 Significance of Hypothesis
 
-**Google App Engine (GAE)** – PaaS for deploying web applications.
-
-- Supports languages: Python, Java, Go, PHP, Node.js (standard & flexible environments).
-- Features:
-  - Automatic scaling of instances.
-  - Integrated services: Datastore / Firestore, Cloud SQL, Task Queues, Memcache.
-  - Built‑in security, logging, monitoring.
-- Developer focuses on app code; Google handles OS, scaling and patching.
-
-Google Cloud also provides:
-
-- Compute Engine (VMs).
-- Cloud Storage (object store).
-- BigQuery (analytics), Pub/Sub (messaging), Cloud Functions (serverless).
+- Guides research direction and focus.
+- Helps in formulating research design and methodology.
+- Provides basis for data collection and analysis.
+- Enables objective evaluation of results.
+- Supports scientific validity of conclusions.
 
 ---
 
-### 4.6 Cloud Enabling Technologies (Revisited)
+### 4.4 Types of Hypothesis
 
-Cloud relies on:
+#### 4.4.1 Null Hypothesis (H₀)
 
-- **Virtualization** – hypervisors, containers.
-- **Broadband Networks** – high‑speed internet connectivity.
-- **Web Services / SOA** – communication between distributed components.
-- **Utility Computing** – metered resource usage.
-- **Grid and Cluster Computing** – distributed processing foundations.
+- States that **no relationship or no significant difference** exists between variables.
+- Default assumption in statistical testing.
+- Testing null hypothesis determines if observed effect is real or due to chance.
+- Example: H₀ = Teaching method A and method B have equal effect on student performance.
 
-These technologies together allow the elastic, on‑demand model of cloud computing.
+#### 4.4.2 Alternative Hypothesis (H₁)
 
----
+- States that **a relationship or significant difference** exists between variables.
+- Opposite of null hypothesis.
+- Accepted when null hypothesis is rejected.
+- Example: H₁ = Teaching method A is more effective than method B.
 
-### 4.7 Hypervisors in Cloud Computing (Recap)
+#### 4.4.3 Directional Hypothesis
 
-- Hypervisor manages multiple VMs on a single physical server.
+- Specifies **direction** of expected relationship.
+- Example: Students using interactive learning will score higher than those using traditional method.
 
-Types:
+#### 4.4.4 Non-Directional Hypothesis
 
-1. **Type‑1 (Bare‑Metal)** – ESXi, Hyper‑V, Xen.
-2. **Type‑2 (Hosted)** – VirtualBox, VMware Workstation.
-
-Roles in cloud:
-
-- Provide CPU, memory and I/O isolation between tenants.
-- Enable features like snapshot, cloning, live migration.
+- States relationship exists but **doesn't specify direction**.
+- Example: There is a difference between the two teaching methods.
 
 ---
 
-### 4.8 Virtual Machine Provisioning and Manageability
+### 4.5 Sources of Hypothesis
 
-**VM Provisioning**
-
-- Creating and configuring VMs from templates or images.
-- Steps:
-  1. Select template (AMI, image).
-  2. Choose instance type (size), storage, VPC/subnet.
-  3. Configure security groups, key pairs.
-  4. Launch VM and run bootstrapping scripts.
-
-**Manageability**
-
-- Monitoring CPU, memory, disk and network.
-- Scaling groups or auto‑scaling policies.
-- Applying patches and updates.
-- Snapshotting and backup of volumes.
-- VM migration for load balancing and maintenance.
+1. **Literature review** – findings and theories from previous research.
+2. **Observation** – patterns noticed in real-world phenomena.
+3. **Theoretical frameworks** – established theories or models.
+4. **Practical experience** – professional or personal experience.
+5. **Expert opinion** – insights from specialists.
 
 ---
 
-### 4.9 Virtual Machine Migration – Techniques
+### 4.6 Parametric vs Non-Parametric Tests
 
-- **Cold migration**
-  - Stop VM, move its disk image, start on another host.
+**Parametric Tests**
 
-- **Live migration**
-  - Perform state transfer while VM is running; short pause during switchover.
+- Assume data follows normal distribution.
+- Use population parameters (mean, standard deviation).
+- Examples: t-test, ANOVA, Pearson correlation.
+- More powerful when assumptions met.
 
-- **Storage migration**
-  - Move VM’s storage (disk) to new datastore.
+**Non-Parametric Tests**
 
-Benefits:
-
-- Balances load, avoids hotspots.
-- Enables maintenance without downtime.
-- Supports disaster recovery scenarios.
-
----
-
-### 4.10 Cloud Migration – Moving Applications to Cloud
-
-Typical steps when migrating an existing application:
-
-1. **Assessment**
-   - Analyse current architecture, dependencies, performance and security requirements.
-   - Decide which apps/components are suitable for cloud.
-
-2. **Planning**
-   - Choose migration strategy:
-     - Rehost (lift‑and‑shift).
-     - Refactor (modify for cloud).
-     - Replatform, Rebuild or Replace (SaaS).
-   - Select provider(s) and target services.
-
-3. **Migration & Deployment**
-   - Move data (databases, files) using migration tools.
-   - Deploy app components on chosen IaaS/PaaS services.
-   - Configure networking, IAM, monitoring and backup.
-
-4. **Testing & Optimization**
-   - Validate functionality, performance, and security.
-   - Configure auto‑scaling, right‑size instances.
-   - Optimise cost using reserved instances, storage classes.
+- Don't assume normal distribution.
+- Based on ranks or frequencies.
+- Examples: Mann-Whitney U test, Kruskal-Wallis test.
+- Used when parametric assumptions violated.
 
 ---
 
-### 4.11 Cloud Computing vs Grid Computing (Difference Points)
+### 4.7 Level of Significance (α)
 
-| Feature          | Cloud Computing                                  | Grid Computing                                         |
-|-----------------|---------------------------------------------------|--------------------------------------------------------|
-| Purpose         | On‑demand services for general workloads          | Distributed processing for large scientific tasks      |
-| Resource Mgmt   | Centralised by provider                           | Decentralised across participating nodes               |
-| Access          | Over internet using standard APIs                 | Often within research or organisational networks       |
-| Scalability     | Highly elastic and automated                      | Limited by added nodes and scheduling                  |
-| Cost Model      | Pay‑per‑use from provider                         | Often collaborative / shared, not strictly metered     |
+- Probability level at which null hypothesis is rejected.
+- Common values: α = 0.05 (5%), α = 0.01 (1%).
+- Represents risk of Type I error (rejecting true null hypothesis).
 
 ---
 
-### 4.12 Need for Cloud Computing (Why Organisations Adopt It)
+### 4.8 Decision Rule
 
-- Reduce capital expenditure on hardware and data centres.
-- Achieve global reach with low latency for users worldwide.
-- Improve business agility (faster time‑to‑market).
-- Support innovation with AI/ML, analytics, IoT services.
-- Enable strong disaster recovery and backup.
+- Compare **p-value** with **significance level (α)**.
+- If p-value < α → reject null hypothesis.
+- If p-value ≥ α → fail to reject null hypothesis.
+
+---
+
+### 4.9 Type I and Type II Errors
+
+| Error | Definition | Example |
+|-------|-----------|---------|
+| **Type I Error (α)** | Rejecting null hypothesis when it is true (false positive) | Concluding drug is effective when it actually isn't |
+| **Type II Error (β)** | Failing to reject null hypothesis when it is false (false negative) | Concluding drug is ineffective when it actually is |
+
+---
+
+### 4.10 Two-Tailed and One-Tailed Tests
+
+**Two-Tailed Test**
+
+- Tests if difference exists in **either direction**.
+- Non-directional hypothesis.
+- Rejects null if test statistic extreme in either tail.
+
+**One-Tailed Test**
+
+- Tests difference in **specific direction**.
+- Directional hypothesis.
+- Rejects null if test statistic extreme in specified direction only.
+
+---
+
+### 4.11 Sampling
+
+**Sampling** = process of selecting a small subset (sample) from a larger group (population) to study characteristics of the whole population.
+
+#### Significance of Sampling
+
+- Cost and time-effective.
+- Practical for large populations.
+- Allows deeper analysis of data.
+- Supports rapid decision-making.
+
+---
+
+### 4.12 Aims of Sampling
+
+1. Obtain accurate information about population.
+2. Reduce research cost and effort.
+3. Simplify data collection and analysis.
+4. Improve speed without losing quality.
+5. Study trends and patterns.
+6. Support decision-making.
+
+---
+
+### 4.13 Population and Sample
+
+- **Population** = entire group of individuals/items being studied.
+- **Sample** = subset selected from population for study.
+- **Sampling frame** = list of all population units.
+
+---
+
+### 4.14 Characteristics of Good Sample
+
+- **Representative** – accurately reflects population characteristics.
+- **Adequate size** – large enough for reliable conclusions.
+- **Unbiased** – selected objectively without favoritism.
+- **Homogeneous** – minimal internal variation.
+
+---
+
+### 4.15 Merits and Demerits of Sampling
+
+**Merits:**
+
+- Cost-effective and economical.
+- Time-saving.
+- Practical for large populations.
+- Higher accuracy when properly selected.
+
+**Demerits:**
+
+- Risk of sampling errors.
+- Bias if not truly representative.
+- Requires expertise in design.
+- Results may not be fully generalizable.
+
+---
+
+### 4.16 Sampling Methods
+
+#### 4.16.1 Probability Sampling Methods
+
+**Simple Random Sampling**
+
+- Every member has **equal chance** of selection.
+- Method: lottery or random number generation.
+- Reduces bias, ensures fairness.
+
+**Systematic Sampling**
+
+- Select every **nth member** from list after random start.
+- Example: selecting every 10th student from 500.
+- Easy to administer.
+
+**Stratified Sampling**
+
+- Divide population into **homogeneous subgroups (strata)**.
+- Sample from each stratum proportionally.
+- Example: sampling students from different grades proportionally.
+- Ensures representation of all subgroups.
+
+**Cluster Sampling**
+
+- Divide population into **clusters** (groups).
+- Randomly select some clusters.
+- Study **all members** of selected clusters.
+- Cost-effective for geographically dispersed populations.
+
+#### 4.16.2 Non-Probability Sampling Methods
+
+**Convenience Sampling**
+
+- Select samples easily accessible.
+- Quick and economical.
+- High bias risk.
+
+**Judgmental (Purposive) Sampling**
+
+- Researcher selects samples based on judgment.
+- For special populations or specific criteria.
+
+**Quota Sampling**
+
+- Ensure representativeness by quota.
+- Divide population into categories and select fixed numbers from each.
+
+**Snowball Sampling**
+
+- Existing subjects recruit future subjects.
+- Used when population hard to reach (sensitive topics).
+
+---
+
+### 4.17 Confidence Level and Significance Level
+
+- **Confidence level** – probability that sample represents population (e.g., 95%).
+- **Significance level** – probability of Type I error (e.g., 5%).
+
+---
+
+### 4.18 Sampling Distribution
+
+- Distribution of sample statistic (e.g., means) from multiple samples.
+- Used to make inferences about population.
+
+---
+
+### 4.19 Important Sampling Distributions
+
+- **Normal distribution** – bell-shaped, symmetric.
+- **t-distribution** – used when sample size small, population SD unknown.
+- **Chi-square distribution** – for categorical data.
+- **F-distribution** – for comparing variances.
+
+---
+
+## Chapter 5 – Data Collection, Processing and Analysis
+
+### 5.1 Introduction to Data Collection
+
+Data collection is the systematic process of gathering information from sources to answer research questions.
+
+---
+
+### 5.2 Primary Data Collection
+
+**Primary data** = original data collected directly by researcher for specific study.
+
+**Methods:**
+
+1. **Observation**
+   - Direct watching and recording behaviour or events.
+   - Types: participant (observer joins activity) or non-participant.
+   - Advantages: first-hand information, suitable for behaviour studies.
+   - Limitations: observer bias, time-consuming.
+
+2. **Interview**
+   - Oral questioning of individuals or groups.
+   - Structured, semi-structured, or unstructured.
+   - Advantages: flexible, detailed responses.
+   - Limitations: time-consuming, costly, interview bias.
+
+3. **Questionnaire**
+   - Set of written questions given to respondents to answer.
+   - Self-administered or online.
+   - Advantages: cost-effective, reaches large populations.
+   - Limitations: low response rate, misinterpretation.
+
+4. **Schedules**
+   - Similar to questionnaire but **interviewer reads and records answers**.
+   - More structured, less flexibility for respondent.
+
+5. **Experiments**
+   - Controlled manipulation of variables.
+   - Tests cause-effect relationships.
+
+---
+
+### 5.3 Difference Between Questionnaires and Schedules
+
+| Aspect | Questionnaire | Schedule |
+|--------|--------------|----------|
+| **Administered by** | Self by respondent | Interviewer |
+| **Method** | Self-administered | Interview |
+| **Time** | Respondent's convenience | Interviewer-guided |
+| **Cost** | Low | High |
+| **Accuracy** | Depends on respondent understanding | More accurate, researcher can explain |
+| **Response rate** | Often lower | Higher |
+
+---
+
+### 5.4 Secondary Data
+
+**Secondary data** = data already collected and published by others (books, journals, reports, govt. data).
+
+**Advantages:**
+
+- Easily accessible.
+- Cost and time-effective.
+
+**Disadvantages:**
+
+- May not fit specific research needs.
+- Accuracy depends on original source.
+
+---
+
+### 5.5 Processing Operations
+
+**Editing** – checking data for completeness and accuracy.
+
+**Coding** – converting data into codes for analysis.
+
+**Tabulation** – organizing data in tables.
+
+**Classification** – organizing data into categories.
+
+---
+
+### 5.6 Problems in Processing
+
+- Missing data.
+- Inconsistencies.
+- Outliers.
+- Data entry errors.
+
+---
+
+### 5.7 Elements and Types of Data Analysis
+
+**Quantitative Data Analysis**
+
+- Statistical methods, numerical analysis.
+
+**Qualitative Data Analysis**
+
+- Thematic analysis, content analysis, narrative analysis.
+
+---
+
+### 5.8 Statistics in Research
+
+**Descriptive Statistics**
+
+- Summarize and describe data (mean, median, mode, range).
+
+**Inferential Statistics**
+
+- Make inferences about population from sample.
+
+---
+
+### 5.9 Measures of Central Tendency
+
+**Mean**
+
+- Average; sum of all values divided by number of values.
+- Most commonly used.
+
+**Median**
+
+- Middle value when data arranged in order.
+- Used when data skewed or has outliers.
+
+**Mode**
+
+- Value occurring most frequently.
+- Used for categorical data.
+
+---
+
+### 5.10 Measures of Dispersion
+
+**Range** – difference between highest and lowest values.
+
+**Variance** – average squared deviation from mean.
+
+**Standard Deviation** – square root of variance; measures spread of data.
+
+**Coefficient of Variation** – standard deviation as % of mean; compares variability across datasets.
+
+---
+
+### 5.11 Measures of Asymmetry (Skewness)
+
+- Describes symmetry or asymmetry of distribution.
+- Positive skew – tail on right.
+- Negative skew – tail on left.
+
+---
+
+### 5.12 Statistical Tests
+
+**t-test** – compares means of two groups.
+
+**ANOVA (F-test)** – compares means across multiple groups.
+
+**Chi-square test** – tests association between categorical variables.
+
+**Correlation** – measures relationship between two variables (Pearson r).
+
+**Regression** – predicts one variable from another.
+
+---
+
+## Chapter 6 – Interpretation and Report Writing
+
+### 6.1 Meaning of Interpretation
+
+**Interpretation** = process of explaining collected data and giving meaning to research results in context of research problem.
+
+---
+
+### 6.2 Why Interpretation?
+
+- Transforms raw data into meaningful information.
+- Answers research questions.
+- Supports decision-making.
+- Contributes to knowledge.
+
+---
+
+### 6.3 Techniques of Interpretation
+
+1. **Comparison** – comparing data with standards or previous studies.
+2. **Trend analysis** – examining patterns over time.
+3. **Graphical presentation** – using charts and graphs.
+4. **Statistical analysis** – applying measures and tests.
+5. **Qualitative analysis** – interpreting interviews, observations.
+6. **Hypothesis testing** – checking if data supports hypothesis.
+
+---
+
+### 6.4 Precautions in Interpretation
+
+1. **Avoid personal bias** – base only on facts, not opinions.
+2. **Consider all factors** – include limitations, sample size, errors.
+3. **Don't overgeneralize** – keep conclusions within study scope.
+4. **Compare with existing theories** – ensure consistency.
+5. **State limitations clearly** – mention weaknesses.
+6. **Use correct statistical methods** – ensure accuracy.
+
+---
+
+### 6.5 Significance of Report Writing
+
+- Presents research findings clearly and systematically.
+- Provides permanent record of research.
+- Supports decision-making and policy formulation.
+- Communicates findings to stakeholders.
+
+---
+
+### 6.6 Steps in Report Writing
+
+1. **Title page and declaration**
+2. **Abstract/Summary** – brief overview (150-250 words).
+3. **Introduction** – research problem, objectives, significance.
+4. **Literature review** – existing research and theoretical framework.
+5. **Methodology** – research design, sampling, data collection tools.
+6. **Results/Findings** – present data with tables, charts, graphs.
+7. **Discussion/Analysis** – interpret results, compare with previous studies.
+8. **Conclusions and recommendations** – summarize findings, suggest further research.
+9. **References/Bibliography** – list all sources cited.
+10. **Appendices** – supplementary material.
+
+---
+
+### 6.7 Layout of Research Report
+
+- Professional formatting with clear headings.
+- Consistent font and spacing.
+- Proper pagination.
+- Clear visual aids (tables, figures).
+
+---
+
+### 6.8 Types of Reports
+
+**Research proposal/Synopsis**
+
+- Plan for proposed research.
+
+**Research paper**
+
+- Shorter form, single study or topic.
+
+**Thesis**
+
+- Longer form, comprehensive research on topic.
+
+---
+
+### 6.9 Oral Presentation
+
+- Present findings verbally to audience.
+- Use slides, audio-visual aids.
+- Practice and engage audience.
+
+---
+
+### 6.10 Mechanics of Writing Research Report
+
+- Use clear, simple language.
+- Avoid jargon and unnecessary complexity.
+- Maintain logical flow.
+- Ensure accuracy of data and references.
+
+---
+
+### 6.11 Precautions for Writing Reports
+
+1. **Clarity and simplicity** – use understandable language.
+2. **Accuracy** – verify all data and figures.
+3. **Proper structure** – follow standard format.
+4. **Avoid plagiarism** – cite all sources correctly.
+5. **Logical sequence** – present information systematically.
+6. **Proofreading** – check grammar and spelling.
+
+---
+
+### 6.12 Data Visualization
+
+**Purpose:**
+
+- Make complex data easy to understand.
+- Highlight patterns and relationships.
+- Engage readers.
+
+**Types:**
+
+- Pie charts, bar charts, line graphs.
+- Histograms, scatter plots, heat maps.
+
+---
+
+### 6.13 Creating Effective Figures, Charts, and Tables
+
+- Clear titles and labels.
+- Appropriate data type for visualization.
+- Legend and scale where needed.
+- Professional appearance.
+
+---
+
+## Chapter 7 – Publication Ethics and Open Access Publishing
+
+### 7.1 Publication Ethics
+
+**Definition** – moral principles guiding ethical conduct in research publication.
+
+**Objectives:**
+
+1. Ensure honesty and integrity in research.
+2. Protect intellectual property.
+3. Maintain trust in scientific community.
+4. Support reproducible science.
+
+---
+
+### 7.2 Principles of Research Ethics
+
+1. **Integrity** – honest reporting of data and findings.
+2. **Transparency** – clear disclosure of methods and limitations.
+3. **Accountability** – take responsibility for research decisions.
+4. **Respect** – protect confidentiality and rights of participants.
+
+---
+
+### 7.3 Importance of Research Ethics
+
+- Ensures credibility of research.
+- Prevents plagiarism and data falsification.
+- Builds trust among research community.
+- Supports responsible research practices.
+
+---
+
+### 7.4 Publication Misconduct
+
+**Types:**
+
+1. **Plagiarism** – using others' work without proper credit.
+2. **Data fabrication** – making up data or results.
+3. **Data falsification** – manipulating data or results.
+4. **Duplicate publication** – publishing same work in multiple journals.
+5. **Authorship misconduct** – improper authorship assignment or omission.
+
+**Consequences:**
+
+- Retraction of published paper.
+- Loss of credibility and reputation.
+- Legal and institutional penalties.
+
+---
+
+### 7.5 Conflicts of Interest
+
+**Definition** – situation where researcher's personal, financial, or professional interests may influence objectivity.
+
+**Examples:**
+
+- Financial benefit from research outcome.
+- Personal relationships with participants/funding agencies.
+- Competing commercial interests.
+
+**Disclosure** – must be transparent about conflicts.
+
+---
+
+### 7.6 Authorship and Contributorship
+
+**Authorship criteria (ICMJE):**
+
+- Substantial contributions to conception/design or data acquisition.
+- Drafting or critically revising content.
+- Final approval and accountability.
+
+**Contributorship** – acknowledge non-authors who contributed.
+
+---
+
+### 7.7 Violations of Publication Ethics
+
+- Plagiarism (direct, mosaic, accidental, self-plagiarism).
+- Falsification of results.
+- Fabrication of data.
+- Improper citation.
+- Duplicate publication.
+
+---
+
+### 7.8 Identification of Misconduct
+
+- Editor review, peer review.
+- Plagiarism detection tools (Turnitin, Grammarly).
+- Institutional investigation.
+
+---
+
+### 7.9 Open Access Publications
+
+**Definition** – scholarly works freely available online without subscription or payment.
+
+**Features:**
+
+- Free access for everyone.
+- Wider dissemination of knowledge.
+- Authors retain copyright (with attribution).
+- Faster academic communication.
+
+**Benefits:**
+
+- Enhances visibility and citation.
+- Promotes equitable access globally.
+- Supports collaboration.
+
+---
+
+### 7.10 Open Access Initiatives
+
+**DOAJ** – Directory of Open Access Journals; lists peer-reviewed OA journals.
+
+**PubMed Central** – free access to biomedical and life sciences literature.
+
+**Institutional repositories** – store OA research works.
+
+**Funding mandates** – require researchers to make outputs open access.
+
+---
+
+### 7.11 SHERPA/RoMEO
+
+- Tool to check publisher copyright and self-archiving policies.
+- Helps identify predatory journals.
+
+---
+
+### 7.12 Predatory Publishers and Journals
+
+**Characteristics:**
+
+- Lack genuine peer review.
+- Rapid acceptance without quality checks.
+- Excessive publication fees.
+- Fake editorial boards or contact info.
+
+**Consequences:**
+
+- Damages academic credibility.
+- Non-reputable indexing.
+- Rejection by institutions.
+
+**Precautions:**
+
+- Check journal indexing and impact factor.
+- Verify peer review process.
+- Avoid spam emails inviting submissions.
+
+---
+
+## Chapter 8 – Research Proposal Development
+
+### 8.1 What is Research Proposal?
+
+**Research Proposal** = detailed plan for proposed research that outlines objectives, methodology, significance, and timeline.
+
+---
+
+### 8.2 Functions of Research Proposal
+
+1. Communicates research plan to advisors, funding agencies.
+2. Guides researcher's work.
+3. Secures approval and funding.
+4. Documents research plan.
+
+---
+
+### 8.3 Statement of Problem
+
+- Clear, concise statement of research issue.
+- Identifies gap in knowledge.
+- Specifies significance.
+
+---
+
+### 8.4 Purpose
+
+- Explains why research is being conducted.
+- Relates to broader research goals.
+
+---
+
+### 8.5 Significance of Study
+
+- Explains contributions to knowledge and practice.
+- Benefits to society or specific field.
+
+---
+
+### 8.6 Elements of Strong Research Proposal
+
+1. **Problem statement** – clear, well-defined issue.
+2. **Research questions/objectives** – what the study aims to answer.
+3. **Significance** – why it matters.
+4. **Literature review** – context and theoretical framework.
+5. **Methodology** – how research will be conducted.
+6. **Timeline** – schedule for activities.
+7. **Resources needed** – budget, equipment, personnel.
+
+---
+
+### 8.7 Components of Research Proposal
+
+1. **Literature review**
+   - Existing research on topic.
+   - Identifies gaps and framework.
+
+2. **Theoretical framework**
+   - Theoretical basis for research.
+   - Explains relationships between concepts.
+
+3. **Methodology**
+   - Research design and approach.
+   - Sampling and data collection.
+   - Data analysis procedures.
+
+4. **Timeline**
+   - Schedule of research activities.
+   - Milestones and deliverables.
+
+---
+
+### 8.8 General Guidelines for Proposal Writing
+
+- Clear and organized.
+- Specific and measurable objectives.
+- Feasible within constraints.
+- Properly cited and formatted.
+- Free of jargon and ambiguity.
 
 ---
