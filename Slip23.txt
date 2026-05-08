@@ -1,0 +1,228 @@
+Q1
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/etSub1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subject 1"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/etSub2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subject 2"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/etSub3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subject 3"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/etSub4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subject 4"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/etSub5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subject 5"
+            android:inputType="numberDecimal"/>
+
+        <Button
+            android:id="@+id/btnCalc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate"/>
+
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:padding="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText etSub1, etSub2, etSub3,
+            etSub4, etSub5;
+
+    Button btnCalc;
+
+    TextView txtResult;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        etSub1 = findViewById(R.id.etSub1);
+        etSub2 = findViewById(R.id.etSub2);
+        etSub3 = findViewById(R.id.etSub3);
+        etSub4 = findViewById(R.id.etSub4);
+        etSub5 = findViewById(R.id.etSub5);
+
+        btnCalc = findViewById(R.id.btnCalc);
+
+        txtResult = findViewById(R.id.txtResult);
+
+        btnCalc.setOnClickListener(
+                new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                double s1 =
+                        Double.parseDouble(
+                                etSub1.getText().toString()
+                        );
+
+                double s2 =
+                        Double.parseDouble(
+                                etSub2.getText().toString()
+                        );
+
+                double s3 =
+                        Double.parseDouble(
+                                etSub3.getText().toString()
+                        );
+
+                double s4 =
+                        Double.parseDouble(
+                                etSub4.getText().toString()
+                        );
+
+                double s5 =
+                        Double.parseDouble(
+                                etSub5.getText().toString()
+                        );
+
+                double total =
+                        s1+s2+s3+s4+s5;
+
+                double per =
+                        total/5;
+
+                txtResult.setText(
+                        "Percentage = " + per
+                );
+            }
+        });
+    }
+}
+
+/-----------------------------
+
+2
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Music"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnPlay;
+
+    MediaPlayer mediaPlayer;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        btnPlay = findViewById(R.id.btnPlay);
+
+        mediaPlayer =
+                MediaPlayer.create(
+                        this,
+                        R.raw.music
+                );
+
+        btnPlay.setOnClickListener(
+                new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                mediaPlayer.start();
+            }
+        });
+    }
+}
+
+/-----------------------------
+

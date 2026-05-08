@@ -1,0 +1,226 @@
+Q1
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etNum"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Number"
+        android:inputType="number"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        app:layout_constraintTop_toBottomOf="@id/etNum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textSize="24sp"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@id/btnCheck"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText etNum;
+
+    Button btnCheck;
+
+    TextView txtResult;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        etNum = findViewById(R.id.etNum);
+
+        btnCheck = findViewById(R.id.btnCheck);
+
+        txtResult = findViewById(R.id.txtResult);
+
+        btnCheck.setOnClickListener(
+                new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                int n =
+                        Integer.parseInt(
+                                etNum.getText().toString()
+                        );
+
+                if(n%2==0) {
+
+                    txtResult.setText(
+                            "Even Number"
+                    );
+                }
+
+                else {
+
+                    txtResult.setText(
+                            "Odd Number"
+                    );
+                }
+            }
+        });
+    }
+}
+
+/-----------------------------
+
+2
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <CheckBox
+        android:id="@+id/cbJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Java"/>
+
+    <CheckBox
+        android:id="@+id/cbPython"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Python"/>
+
+    <CheckBox
+        android:id="@+id/cbAndroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android"/>
+
+    <Button
+        android:id="@+id/btnShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show"/>
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:padding="20dp"/>
+
+</LinearLayout>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    CheckBox cbJava, cbPython, cbAndroid;
+
+    Button btnShow;
+
+    TextView txtResult;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        cbJava = findViewById(R.id.cbJava);
+
+        cbPython = findViewById(R.id.cbPython);
+
+        cbAndroid = findViewById(R.id.cbAndroid);
+
+        btnShow = findViewById(R.id.btnShow);
+
+        txtResult = findViewById(R.id.txtResult);
+
+        btnShow.setOnClickListener(
+                new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                String data = "";
+
+                if(cbJava.isChecked()) {
+
+                    data += "Java ";
+                }
+
+                if(cbPython.isChecked()) {
+
+                    data += "Python ";
+                }
+
+                if(cbAndroid.isChecked()) {
+
+                    data += "Android";
+                }
+
+                txtResult.setText(data);
+            }
+        });
+    }
+}
+
+/-----------------------------
+

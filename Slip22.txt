@@ -1,0 +1,192 @@
+Q1
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etRadius"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Radius"
+        android:inputType="numberDecimal"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnFind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Area"
+        app:layout_constraintTop_toBottomOf="@id/etRadius"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textSize="24sp"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@id/btnFind"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText etRadius;
+
+    Button btnFind;
+
+    TextView txtResult;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        etRadius = findViewById(R.id.etRadius);
+
+        btnFind = findViewById(R.id.btnFind);
+
+        txtResult = findViewById(R.id.txtResult);
+
+        btnFind.setOnClickListener(
+                new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                double r =
+                        Double.parseDouble(
+                                etRadius.getText().toString()
+                        );
+
+                double area =
+                        3.14 * r * r;
+
+                txtResult.setText(
+                        "Area = " + area
+                );
+            }
+        });
+    }
+}
+
+/-----------------------------
+
+2
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        app:layout_constraintTop_toBottomOf="@id/videoView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.VideoView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    VideoView videoView;
+
+    Button btnPlay;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        videoView = findViewById(R.id.videoView);
+
+        btnPlay = findViewById(R.id.btnPlay);
+
+        String path =
+                "android.resource://"
+                + getPackageName()
+                + "/"
+                + R.raw.video;
+
+        Uri uri = Uri.parse(path);
+
+        videoView.setVideoURI(uri);
+
+        btnPlay.setOnClickListener(
+                new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                videoView.start();
+            }
+        });
+    }
+}
+
+/-----------------------------
+

@@ -1,0 +1,286 @@
+Q1
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Dialog"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnShow;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        btnShow = findViewById(R.id.btnShow);
+
+        btnShow.setOnClickListener(
+                new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder =
+                        new AlertDialog.Builder(
+                                MainActivity.this
+                        );
+
+                builder.setTitle("Alert");
+
+                builder.setMessage(
+                        "Are You Sure?"
+                );
+
+                builder.setPositiveButton(
+                        "Yes",
+                        new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(
+                            DialogInterface dialog,
+                            int which
+                    ) {
+
+                        Toast.makeText(
+                                MainActivity.this,
+                                "Yes Clicked",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                });
+
+                builder.setNegativeButton(
+                        "No",
+                        null
+                );
+
+                builder.show();
+            }
+        });
+    }
+}
+
+/-----------------------------
+
+2
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Name"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbRed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Red"/>
+
+            <RadioButton
+                android:id="@+id/rbBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blue"/>
+
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/cbBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bold"/>
+
+        <CheckBox
+            android:id="@+id/cbItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Italic"/>
+
+        <Button
+            android:id="@+id/btnShow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show"/>
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear"/>
+
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="Result"
+            android:padding="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText etName;
+
+    RadioButton rbRed, rbBlue;
+
+    CheckBox cbBold, cbItalic;
+
+    Button btnShow, btnClear;
+
+    TextView txtResult;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        etName = findViewById(R.id.etName);
+
+        rbRed = findViewById(R.id.rbRed);
+        rbBlue = findViewById(R.id.rbBlue);
+
+        cbBold = findViewById(R.id.cbBold);
+        cbItalic = findViewById(R.id.cbItalic);
+
+        btnShow = findViewById(R.id.btnShow);
+        btnClear = findViewById(R.id.btnClear);
+
+        txtResult = findViewById(R.id.txtResult);
+
+        btnShow.setOnClickListener(
+                new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                txtResult.setText(
+                        etName.getText().toString()
+                );
+
+                if(rbRed.isChecked()) {
+
+                    txtResult.setTextColor(
+                            Color.RED
+                    );
+                }
+
+                if(rbBlue.isChecked()) {
+
+                    txtResult.setTextColor(
+                            Color.BLUE
+                    );
+                }
+
+                if(cbBold.isChecked()) {
+
+                    txtResult.setTypeface(
+                            null,
+                            Typeface.BOLD
+                    );
+                }
+
+                if(cbItalic.isChecked()) {
+
+                    txtResult.setTypeface(
+                            null,
+                            Typeface.ITALIC
+                    );
+                }
+            }
+        });
+
+        btnClear.setOnClickListener(
+                new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                etName.setText("");
+
+                txtResult.setText("");
+            }
+        });
+    }
+}
+
+/-----------------------------
+

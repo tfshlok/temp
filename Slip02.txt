@@ -1,0 +1,305 @@
+Q1
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etNum"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Number"
+        android:inputType="number"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        app:layout_constraintTop_toBottomOf="@id/etNum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText etNum;
+
+    Button btnCheck;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        etNum = findViewById(R.id.etNum);
+
+        btnCheck = findViewById(R.id.btnCheck);
+
+        btnCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int n =
+                        Integer.parseInt(
+                                etNum.getText().toString()
+                        );
+
+                int sum = 0;
+
+                for(int i=1;i<n;i++) {
+
+                    if(n%i==0) {
+
+                        sum += i;
+                    }
+                }
+
+                if(sum==n) {
+
+                    Toast.makeText(
+                            MainActivity.this,
+                            "Perfect Number",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+
+                else {
+
+                    Toast.makeText(
+                            MainActivity.this,
+                            "Not Perfect Number",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
+        });
+    }
+}
+
+/-----------------------------
+
+2
+
+/-----------------------------
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etNum1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="First Number"
+        android:inputType="numberDecimal"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/etNum2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Second Number"
+        android:inputType="numberDecimal"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/etNum1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        app:layout_constraintTop_toBottomOf="@id/etNum2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"/>
+
+    <Button
+        android:id="@+id/btnSub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        app:layout_constraintTop_toBottomOf="@id/etNum2"
+        app:layout_constraintStart_toEndOf="@id/btnAdd"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/btnMul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        app:layout_constraintTop_toBottomOf="@id/etNum2"
+        app:layout_constraintStart_toEndOf="@id/btnSub"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/btnDiv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        app:layout_constraintTop_toBottomOf="@id/etNum2"
+        app:layout_constraintStart_toEndOf="@id/btnMul"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/txtAns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Answer"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/btnAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+/-----------------------------
+
+MainActivity.java
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText etNum1, etNum2;
+
+    Button btnAdd, btnSub, btnMul, btnDiv;
+
+    TextView txtAns;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        etNum1 = findViewById(R.id.etNum1);
+        etNum2 = findViewById(R.id.etNum2);
+
+        btnAdd = findViewById(R.id.btnAdd);
+        btnSub = findViewById(R.id.btnSub);
+        btnMul = findViewById(R.id.btnMul);
+        btnDiv = findViewById(R.id.btnDiv);
+
+        txtAns = findViewById(R.id.txtAns);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                double a =
+                        Double.parseDouble(
+                                etNum1.getText().toString()
+                        );
+
+                double b =
+                        Double.parseDouble(
+                                etNum2.getText().toString()
+                        );
+
+                txtAns.setText("Answer = "+(a+b));
+            }
+        });
+
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                double a =
+                        Double.parseDouble(
+                                etNum1.getText().toString()
+                        );
+
+                double b =
+                        Double.parseDouble(
+                                etNum2.getText().toString()
+                        );
+
+                txtAns.setText("Answer = "+(a-b));
+            }
+        });
+
+        btnMul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                double a =
+                        Double.parseDouble(
+                                etNum1.getText().toString()
+                        );
+
+                double b =
+                        Double.parseDouble(
+                                etNum2.getText().toString()
+                        );
+
+                txtAns.setText("Answer = "+(a*b));
+            }
+        });
+
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                double a =
+                        Double.parseDouble(
+                                etNum1.getText().toString()
+                        );
+
+                double b =
+                        Double.parseDouble(
+                                etNum2.getText().toString()
+                        );
+
+                txtAns.setText("Answer = "+(a/b));
+            }
+        });
+    }
+}
+
+/-----------------------------
+
